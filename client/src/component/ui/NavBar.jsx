@@ -105,7 +105,7 @@ function NavBar() {
           transform transition-all duration-300 ease-in-out overflow-hidden
           ${
             isMobileMenuOpen
-              ? "max-h-96 opacity-100 translate-y-0"
+              ? "max-h-[60vh] opacity-100 translate-y-0"
               : "max-h-0 opacity-0 -translate-y-2"
           }`}
       >
