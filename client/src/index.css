@@ -19,11 +19,12 @@
 .cursor {
   display: inline-block;
   width: 2px;
-  height: 1.2em;
-  background-color: var(--accent);
-  margin-left: 2px;
+  height: 1.3em;
+  background-color: rgb(255, 136, 0);
+  margin-left: 3px;
+  border-radius: 2px;
   animation: blinkSmooth 1s ease-in-out infinite;
-  vertical-align: middle;
+  vertical-align: bottom;
 }
 
 @keyframes blinkSmooth {
