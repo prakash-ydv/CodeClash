@@ -23,7 +23,7 @@ function NavBar() {
         <h1 className="text-white">CodeClash</h1>
       </div>
 
-      <div id="middle" className="hidden lg:flex gap-10 text-white">
+      <div id="middle" className="hidden lg:flex gap-8 xl:gap-10 text-white">
         <NavLink
           className={({ isActive }) =>
             `fira hover:text-orange-400 transition-colors duration-300 ease-in-out
@@ -33,6 +33,16 @@ function NavBar() {
           to={"/"}
         >
           home()
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `fira hover:text-orange-400 transition-colors duration-300 ease-in-out
+            ${isActive ? "text-orange-400" : "text-white"}
+            `
+          }
+          to={"/battle"}
+        >
+          battle()
         </NavLink>
         <NavLink
           className={({ isActive }) =>
@@ -111,6 +121,17 @@ function NavBar() {
             onClick={closeMobileMenu}
           >
             home()
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              `fira text-white hover:text-orange-400 transition-colors duration-300 ease-in-out text-lg py-2
+              ${isActive ? "text-orange-400" : ""}
+            `
+            }
+            to={"/battle"}
+            onClick={closeMobileMenu}
+          >
+            battle()
           </NavLink>
           <NavLink
             className={({ isActive }) =>
