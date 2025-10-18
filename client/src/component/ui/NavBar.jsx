@@ -74,7 +74,7 @@ function NavBar() {
             }
             to={"/login"}
           >
-            console.login()
+            login()
           </NavLink>
           <NavLink
             className={

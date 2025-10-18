@@ -13,7 +13,7 @@ function HomePage() {
         id="hero-container"
         className="terminal-bg w-full h-full flex flex-col items-center p-5 md:px-10 pt-30 gap-12"
       >
-        <h1 className="text-[2.2rem] md:text-[3.3rem] font-bold tracking-wide">
+        <h1 className="text-[2.4rem] md:text-[3.3rem] font-bold tracking-wide fira">
           CodeClash<span className="text-orange-500">.arena</span>
           <span className="cursor"></span>
         </h1>
