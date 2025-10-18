@@ -1,0 +1,298 @@
+:root {
+  /* Main background colors */
+  --terminal-bg: #0d1117;      /* Primary page background */
+  --terminal-header: #161b22;  /* Header, footer, card backgrounds */
+  --terminal-border: #30363d;  /* Borders, separators, lines */
+  
+  /* Code syntax highlighting colors */
+  --code-green: #7ee787;       /* Strings, success states, easy difficulty */
+  --code-blue: #79c0ff;        /* Function names, links, medium elements */
+  --code-purple: #d2a8ff;      /* Keywords, premium features */
+  --code-yellow: #ffa657;      /* Variables, warnings, medium difficulty */
+  --code-red: #ff7b72;         /* Errors, hard difficulty, danger states */
+  
+  /* Text colors */
+  --code-gray: #8b949e;        /* Secondary text, comments, disabled states */
+  --code-text: #c9d1d9;        /* Primary body text */
+  --light-text: #f0f6fc;       /* Headings, important text */
+  
+  /* Accent/brand colors */
+  --accent: #ff6d00;           /* Primary brand color - buttons, highlights */
+  --accent-dark: #ff8f00;      /* Gradient end, hover states */
+  
+  /* Additional backgrounds */
+  --dark-bg: #010409;          /* Deep background (body) */
+  --card-bg: #161b22;          /* Card backgrounds (same as terminal-header) */
+}
+
+/* ===== BACKGROUND COLORS ===== */
+
+.terminal-bg {
+  background-color: var(--terminal-bg); 
+  /* Used for: Hero section, Battle Modes, Code Editor section, Problems section */
+}
+
+.terminal-header {
+  background-color: var(--terminal-header);
+  /* Used for: Header, Footer, Card backgrounds, Side panels */
+}
+
+.card-bg {
+  background-color: var(--card-bg);
+  /* Used for: Dashboard cards, Problem cards, Mode cards */
+}
+
+.dark-bg {
+  background-color: var(--dark-bg);
+  /* Used for: Main body background */
+}
+
+/* ===== TEXT COLORS ===== */
+
+.text-code {
+  color: var(--code-text);
+  /* Used for: Primary body text, descriptions */
+}
+
+.text-light {
+  color: var(--light-text);
+  /* Used for: Headings (h1, h2, h3), important labels */
+}
+
+.text-code-gray {
+  color: var(--code-gray);
+  /* Used for: Secondary text, labels, timestamps, comments */
+}
+
+.text-code-green {
+  color: var(--code-green);
+  /* Used for: Success states, easy difficulty, positive metrics */
+}
+
+.text-code-blue {
+  color: var(--code-blue);
+  /* Used for: Links, function names, medium elements */
+}
+
+.text-code-purple {
+  color: var(--code-purple);
+  /* Used for: Keywords, premium features, special elements */
+}
+
+.text-code-yellow {
+  color: var(--code-yellow);
+  /* Used for: Variables, warnings, medium difficulty */
+}
+
+.text-code-red {
+  color: var(--code-red);
+  /* Used for: Errors, hard difficulty, danger states */
+}
+
+.text-accent {
+  color: var(--accent);
+  /* Used for: Primary accents, highlights, active states */
+}
+
+/* ===== BORDER COLORS ===== */
+
+.terminal-border {
+  border-color: var(--terminal-border);
+  /* Used for: All borders, dividers, separators */
+}
+
+.border-accent {
+  border-color: var(--accent);
+  /* Used for: Active states, focused elements, highlights */
+}
+
+.border-code-green {
+  border-color: var(--code-green);
+  /* Used for: Success borders, outline buttons */
+}
+
+/* ===== BACKGROUND COLORS WITH OPACITY ===== */
+
+.bg-code-green-10 {
+  background-color: rgba(126, 231, 135, 0.1);
+  /* Used for: Success backgrounds, easy difficulty badges */
+}
+
+.bg-code-blue-10 {
+  background-color: rgba(121, 192, 255, 0.1);
+  /* Used for: Info backgrounds, notification badges */
+}
+
+.bg-code-purple-10 {
+  background-color: rgba(210, 168, 255, 0.1);
+  /* Used for: Special feature backgrounds */
+}
+
+.bg-code-yellow-10 {
+  background-color: rgba(255, 166, 87, 0.1);
+  /* Used for: Warning backgrounds, medium difficulty badges */
+}
+
+.bg-code-red-10 {
+  background-color: rgba(255, 123, 114, 0.1);
+  /* Used for: Error backgrounds, hard difficulty badges */
+}
+
+.bg-accent-10 {
+  background-color: rgba(255, 109, 0, 0.1);
+  /* Used for: Accent backgrounds, hover states */
+}
+
+/* ===== GRADIENTS ===== */
+
+.gradient-accent {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  /* Used for: Primary buttons, important highlights */
+}
+
+.gradient-terminal {
+  background: linear-gradient(135deg, var(--terminal-header), var(--terminal-bg));
+  /* Used for: Subtle backgrounds, depth effects */
+}
+
+/* ===== SPECIFIC COMPONENT CLASSES ===== */
+
+/* Header */
+.header {
+  background-color: var(--terminal-header);
+  border-bottom: 1px solid var(--terminal-border);
+  color: var(--light-text);
+}
+
+/* Cards */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--terminal-border);
+  color: var(--code-text);
+}
+
+.card:hover {
+  border-color: var(--accent);
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: var(--terminal-bg);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--code-green);
+  color: var(--code-green);
+}
+
+.btn-outline:hover {
+  background-color: rgba(126, 231, 135, 0.1);
+}
+
+/* Code Editor */
+.editor-container {
+  background-color: var(--terminal-header);
+  border: 1px solid var(--terminal-border);
+}
+
+.editor-header {
+  background-color: var(--terminal-bg);
+  border-bottom: 1px solid var(--terminal-border);
+}
+
+.code-area {
+  background-color: var(--terminal-bg);
+  color: var(--code-text);
+}
+
+/* Difficulty Badges */
+.difficulty-easy {
+  background-color: rgba(126, 231, 135, 0.2);
+  color: var(--code-green);
+}
+
+.difficulty-medium {
+  background-color: rgba(255, 166, 87, 0.2);
+  color: var(--code-yellow);
+}
+
+.difficulty-hard {
+  background-color: rgba(255, 123, 114, 0.2);
+  color: var(--code-red);
+}
+
+/* Activity Items */
+.activity-success {
+  background-color: rgba(126, 231, 135, 0.1);
+  color: var(--code-green);
+}
+
+.activity-warning {
+  background-color: rgba(255, 109, 0, 0.1);
+  color: var(--accent);
+}
+
+.activity-info {
+  background-color: rgba(121, 192, 255, 0.1);
+  color: var(--code-blue);
+}
+
+/* Progress Bars */
+.progress-bg {
+  background-color: var(--terminal-header);
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+}
+
+/* Syntax Highlighting (for code snippets) */
+.code-keyword {
+  color: var(--code-purple);
+}
+
+.code-function {
+  color: var(--code-blue);
+}
+
+.code-string {
+  color: var(--code-green);
+}
+
+.code-comment {
+  color: var(--code-gray);
+}
+
+.code-var {
+  color: var(--code-yellow);
+}
+
+/* Leaderboard */
+.leaderboard-header {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: var(--terminal-bg);
+}
+
+.leaderboard-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--terminal-header);
+  border-top: 1px solid var(--terminal-border);
+  color: var(--code-gray);
+}
+
+/* Social Links */
+.social-link {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--code-gray);
+}
+
+.social-link:hover {
+  background-color: var(--accent);
+  color: var(--terminal-bg);
+}
