@@ -3,6 +3,7 @@ import NavBar from "../component/ui/NavBar";
 import { CodeXml, Swords } from "lucide-react";
 import GreenEffext from "../component/utils/GreenEffext";
 import CodeSnippet from "../component/ui/CodeSnippet";
+import GlobalLeaderBoard from "../component/ui/GlobalLeaderBoard";
 
 function HomePage() {
   return (
@@ -37,6 +38,10 @@ function HomePage() {
 
         <CodeSnippet />
       </div>
+
+      <section className="terminal-bg w-full center px-5 md:px-10">
+        <GlobalLeaderBoard />
+      </section>
     </div>
   );
 }
