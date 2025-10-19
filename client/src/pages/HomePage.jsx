@@ -4,15 +4,17 @@ import { CodeXml, Swords } from "lucide-react";
 import GreenEffext from "../component/utils/GreenEffext";
 import CodeSnippet from "../component/ui/CodeSnippet";
 import GlobalLeaderBoard from "../component/ui/GlobalLeaderBoard";
+import BattleModeBox from "../component/utils/BattleModeBox";
+import BattleModes from "../component/ui/BattleModes";
 
 function HomePage() {
   return (
-    <div className="relative w-full overflow-hidden text-white">
+    <div className="relative terminal-bg w-full overflow-hidden text-white">
       <NavBar />
       <GreenEffext />
       <div
         id="hero-container"
-        className="terminal-bg w-full h-full flex flex-col items-center p-5 md:px-10 pt-30 gap-12"
+        className=" w-full h-full flex flex-col items-center p-5 md:px-10 pt-30 gap-12"
       >
         <h1 className="text-[2.4rem] md:text-[3.3rem] font-bold tracking-wide fira">
           CodeClash<span className="text-orange-500">.arena</span>
@@ -41,6 +43,10 @@ function HomePage() {
 
       <section className="terminal-bg w-full center px-5 md:px-10">
         <GlobalLeaderBoard />
+      </section>
+
+      <section className="terminal-bg w-full center px-5 md:px-10">
+        <BattleModes />
       </section>
     </div>
   );
