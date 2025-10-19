@@ -6,6 +6,7 @@ import CodeSnippet from "../component/ui/CodeSnippet";
 import GlobalLeaderBoard from "../component/ui/GlobalLeaderBoard";
 import BattleModeBox from "../component/utils/BattleModeBox";
 import BattleModes from "../component/ui/BattleModes";
+import Footer from "../component/ui/Footer";
 
 function HomePage() {
   return (
@@ -48,6 +49,8 @@ function HomePage() {
       <section className="terminal-bg w-full center px-5 md:px-10">
         <BattleModes />
       </section>
+
+      <Footer />
     </div>
   );
 }

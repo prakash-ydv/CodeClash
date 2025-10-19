@@ -40,3 +40,9 @@
 button {
   cursor: pointer;
 }
+
+.nav{
+  font-family: fira;
+  color: #71717b;
+  letter-spacing: 0.02em;
+}
