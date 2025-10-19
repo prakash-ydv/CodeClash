@@ -41,7 +41,7 @@ function GlobalLeaderBoard() {
   ];
   return (
     <div className="w-full md:w-[80vw]">
-      <h1 className="py-10 md:py-15 text-center text-3xl md:text-[2.2rem] fira font-bold">
+      <h1 className="pt-20 pb-10 text-center text-3xl md:text-[2.2rem] fira font-bold">
         global.Leaderboard<span className="text-orange-500">;</span>
       </h1>
       <div className="w-full bg-orange-500 rounded-t-3xl center p-5">
