@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { CodeXml, Menu, X } from "lucide-react";
 
 function NavBar() {
-  const isLogedIn = false;
+  const navigate = useNavigate();
+  const isLogedIn = true;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -86,9 +87,10 @@ function NavBar() {
           </NavLink>
         </div>
       ) : (
-        <span className="hidden lg:block h-10 w-10 rounded-full bg-white">
-          <img src="" alt="" />
-        </span>
+        <span
+          onClick={() => navigate("/profile")}
+          className="hidden cursor-pointer lg:block h-10 w-10 rounded-full bg-white"
+        ></span>
       )}
 
       {/* Mobile Menu Button */}
