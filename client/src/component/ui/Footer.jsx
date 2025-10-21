@@ -60,7 +60,7 @@ function Footer() {
     },
   ];
   return (
-    <footer className="flex gap-5 md:items-center justify-evenly w-full terminal-header mt-20 border-t border-white/10 p-10">
+    <footer className="flex gap-5 md:items-center justify-evenly w-full terminal-header mt-20 border-t border-white/10 p-10 text-white">
       <div id="branding" className="w-full md:w-72 flex flex-col gap-2">
         <h1 className="text-lg ">CodeClash</h1>
         <p className="text-zinc-500 text-sm">
