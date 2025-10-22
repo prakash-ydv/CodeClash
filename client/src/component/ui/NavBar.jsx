@@ -170,7 +170,7 @@ function NavBar() {
                   to={"/login"}
                   onClick={closeMobileMenu}
                 >
-                  console.login()
+                  login()
                 </NavLink>
                 <NavLink
                   className={
