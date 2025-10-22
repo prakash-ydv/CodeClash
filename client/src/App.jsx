@@ -8,12 +8,15 @@ import SignUpPage from "./pages/SignUpPage";
 import BattlePage from "./pages/BattlePage";
 import ProfilePage from "./pages/ProfilePage";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-const clientId = import.meta.env.VITE_CLIENT_ID;
 
 function App() {
   const googleOauthLogin = () => {
     return (
-      <GoogleOAuthProvider clientId={clientId}>
+      <GoogleOAuthProvider
+        clientId={
+          "658818578297-m79hi9a1t985340c98jkufejbavf3s66.apps.googleusercontent.com"
+        }
+      >
         <LoginPage />
       </GoogleOAuthProvider>
     );
