@@ -15,6 +15,9 @@ const io = new Server(httpServer, {
 
 app.use(express.json()); // parse JSON
 
+const connectDB = require("./utils/db.connection");
+connectDB();
+
 const authRoute = require("./routes/auth.route");
 app.use("/auth", authRoute); // fixed slash
 
