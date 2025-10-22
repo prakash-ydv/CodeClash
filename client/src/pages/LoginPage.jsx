@@ -1,7 +1,43 @@
-import React from "react";
+import React, { useContext } from "react";
 import NavBar from "../component/ui/NavBar";
+import { useGoogleLogin } from "@react-oauth/google";
+import { googleAuth } from "../api/auth.api";
+import { UserContext } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 function LoginPage() {
+  const navigate = useNavigate();
+  const { setUser, setIsLogedIn } = useContext(UserContext);
+
+  const googleResponse = async (authResult) => {
+    try {
+      if (authResult.code) {
+        const response = await googleAuth(authResult.code);
+        if (response.data.message == "success") {
+          setUser(response.data.user);
+          setIsLogedIn(true);
+          // set token
+          Cookies.set("token", response.data.token, {
+            expires: 7, // days until expiry
+            secure: true, // HTTPS only
+            sameSite: "Strict", // prevent CSRF
+          });
+          navigate("/profile");
+        }
+      } else {
+        console.error("Auth code not found");
+      }
+    } catch (err) {
+      console.error("error", err);
+    }
+  };
+
+  const loginWithGoogle = useGoogleLogin({
+    onSuccess: googleResponse,
+    onError: googleResponse,
+    flow: "auth-code",
+  });
   return (
     <div className="h-screen terminal-bg">
       <NavBar />
@@ -40,7 +76,9 @@ function LoginPage() {
                 minLength={4}
               />
             </div>
-            <span className="text-xs text-zinc-500 cursor-pointer py-">forgot password</span>
+            <span className="text-xs text-zinc-500 cursor-pointer py-">
+              forgot password
+            </span>
             <input
               className="bg-green-500 rounded-md text-sm p-2 font-semibold cursor-pointer"
               type="submit"
@@ -50,10 +88,13 @@ function LoginPage() {
 
           <span className="text-zinc-500 py-5">or</span>
 
-          <button className="w-full flex items-center justify-center text-sm gap-2 bg-white text-black px-4 py-2 rounded-md">
-            <img 
-              src="https://www.google.com/favicon.ico" 
-              alt="Google" 
+          <button
+            onClick={() => loginWithGoogle()}
+            className="w-full flex items-center justify-center text-sm gap-2 bg-white text-black px-4 py-2 rounded-md"
+          >
+            <img
+              src="https://www.google.com/favicon.ico"
+              alt="Google"
               className="w-4 h-4"
             />
             Login with Google

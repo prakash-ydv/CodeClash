@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import NavBar from "../component/ui/NavBar";
 import Footer from "../component/ui/Footer";
+import { UserContext } from "../context/UserContext";
 
 function ProfilePage() {
+  const { user } = useContext(UserContext);
+
   return (
     <div className="w-full min-h-screen terminal-bg transition-all duration-300 ease-in-out">
       <NavBar />
@@ -18,18 +21,20 @@ function ProfilePage() {
           <div id="profile-details" className="flex items-center gap-4">
             <span className="h-16 w-16 overflow-hidden bg-center bg-white rounded-xl">
               <img
-                src="https://thumbs.dreamstime.com/b/happy-black-teen-boy-outside-african-american-smiles-sitting-bench-192130399.jpg"
+                src={user.avatar}
                 alt="Profile"
                 className="h-full w-full object-cover"
               />
             </span>
             <div className="flex flex-col">
-              <h1 className="text-lg md:text-xl font-bold">Durgesh Naiii</h1>
+              <h1 className="text-lg md:text-xl font-bold">
+                {user.name || "Your Name"}
+              </h1>
               <span className="text-xs text-zinc-500">@username</span>
             </div>
           </div>
           <p className="text-xs text-zinc-500">
-            Full Stack Developer | DSA is Love
+            {user.bio || "Everythin is all about 0 and 1..."}
           </p>
 
           <button
@@ -45,19 +50,28 @@ function ProfilePage() {
           {/* first row */}
           <div className=" grid grid-cols-2 md:grid-cols-4 gap-5">
             <div className="flex flex-col items-center justify-evenly border border-white/10 rounded-2xl p-5 hover:border-orange-500">
-              <h1 className="font-bold text-4xl md:text-[3.5rem]">7</h1>
+              <h1 className="font-bold text-4xl md:text-[3.5rem]">
+                {user?.stats?.battlePlayed ?? 0}
+              </h1>
               <p className="text-sm text-zinc-500">Battles Played</p>
             </div>
             <div className="flex flex-col items-center justify-evenly border border-white/10 rounded-2xl p-5 hover:border-orange-500">
-              <h1 className="font-bold text-4xl md:text-[3.5rem]">4</h1>
+              <h1 className="font-bold text-4xl md:text-[3.5rem]">
+                {user?.stats?.battleWon ?? 0}
+              </h1>
               <p className="text-sm text-zinc-500">Battles Won</p>
             </div>
             <div className="flex flex-col items-center justify-evenly border border-white/10 rounded-2xl p-5 hover:border-orange-500">
-              <h1 className="font-bold text-4xl md:text-[3.5rem]">71%</h1>
+              <h1 className="font-bold text-4xl md:text-[3.5rem]">
+                {((user?.stats?.battleWon ?? 0) /
+                  (user?.stats?.battlePlayed ?? 1)) *
+                  100 || 0}
+                %
+              </h1>
               <p className="text-sm text-zinc-500">Win Ratio</p>
             </div>
             <div className="flex flex-col items-center justify-evenly border border-white/10 rounded-2xl p-5 hover:border-orange-500">
-              <h1 className="font-bold text-4xl md:text-[3.5rem]">64%</h1>
+              <h1 className="font-bold text-4xl md:text-[3.5rem]">69%</h1>
               <p className="text-sm text-zinc-500">Accuracy</p>
             </div>
           </div>

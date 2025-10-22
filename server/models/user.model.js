@@ -16,17 +16,33 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: [true, "Password is required"],
       minlength: [6, "Password must be at least 6 characters"],
     },
     avatar: {
-      type: String, // URL to profile image
-      default: "",
+      type: String,
+      default:
+        "https://content.imageresizer.com/images/memes/Annoyed-face-meme-7.jpg",
+    },
+    bio: {
+      type: String,
+      default: "Hello there, lets battle together...!!",
     },
     role: {
       type: String,
       enum: ["user", "admin"],
       default: "user",
+    },
+    battlePlayed: {
+      type: Number,
+      default: 0,
+    },
+    battleWon: {
+      type: Number,
+      default: 0,
+    },
+    accuracy: {
+      type: Number,
+      default: 0,
     },
   },
   { timestamps: true } // adds createdAt and updatedAt

@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { CodeXml, Menu, X } from "lucide-react";
+import { CodeXml, Menu, User, X } from "lucide-react";
+import { UserContext } from "../../context/UserContext";
 
 function NavBar() {
+  const { isLogedIn } = useContext(UserContext);
   const navigate = useNavigate();
-  const isLogedIn = true;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
