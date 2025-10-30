@@ -25,9 +25,16 @@ app.use(
 const connectDB = require("./utils/db.connection");
 connectDB();
 
+// routes
 const authRoute = require("./routes/auth.route");
+const adminAuthRoute = require("./routes/admin.auth.route");
+
+// controllers
 const { fetchMe } = require("./controllers/user.controller");
+
+// middlewares
 app.use("/auth", authRoute); // fixed slash
+app.use("/admin/auth", adminAuthRoute);
 
 app.get("/", (req, res) => {
   res.json({
