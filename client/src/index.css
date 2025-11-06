@@ -41,27 +41,26 @@ button {
   cursor: pointer;
 }
 
-.nav{
+.nav {
   font-family: fira;
   color: #71717b;
   letter-spacing: 0.02em;
 }
 
-
 .custom-input {
-  width: 100%;                  /* w-full */
-  border: 1px solid rgba(255,255,255,0.1); /* border-white/10 */
-  border-radius: 0.375rem;      /* rounded-md */
-  padding: 0.25rem;             /* p-1 */
-  color: #f97316;               /* text-orange-500 */
-  font-size: 0.875rem;          /* text-sm */
-  outline: none;                /* outline-none */
+  width: 100%; /* w-full */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* border-white/10 */
+  border-radius: 0.375rem; /* rounded-md */
+  padding: 0.25rem; /* p-1 */
+  color: #f97316; /* text-orange-500 */
+  font-size: 0.875rem; /* text-sm */
+  outline: none; /* outline-none */
   transition: border-color 0.2s; /* optional smooth focus transition */
   background-color: none;
 }
 
 .custom-input:focus-within {
-  border-color: #f97316;        /* focus-within:border-orange-500 */
+  border-color: #f97316; /* focus-within:border-orange-500 */
 }
 
 /* remove input box bg-white */
@@ -74,3 +73,12 @@ input.custom-input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s; /* force override */
 }
 
+/* Hide scrollbar but allow scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

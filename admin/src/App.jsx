@@ -13,7 +13,6 @@ function App() {
   useEffect(() => {
     const handleResize = () => setIsDesktop(window.innerWidth >= 800);
     window.addEventListener("resize", handleResize);
-    console.log("Changed...");
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
