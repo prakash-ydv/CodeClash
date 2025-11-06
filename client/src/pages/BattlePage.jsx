@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import NavBar from "../component/ui/NavBar";
 import ProblemStatement from "../component/ui/ProblemStatement";
 import Rules from "../component/ui/Rules";
@@ -6,8 +6,11 @@ import Editor from "@monaco-editor/react";
 import CodeIDE from "../component/ui/CodeIDE";
 import SmallScreenWarning from "../component/ui/SmallScreenWarning";
 import TabMonitor from "../component/security/TabMonitor";
+import { runCode } from "../api/problem.api";
+import { UserContext } from "../context/UserContext";
 
 function BattlePage() {
+  const { code, setIdeLang, ideLang } = useContext(UserContext);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 800);
   const [isRulesActive, setIsRulesActive] = useState(false);
 
@@ -24,9 +27,9 @@ function BattlePage() {
 
   return (
     <div className="w-[100vw] h-[100vh] overflow-hidden">
-      <TabMonitor
+      {/* <TabMonitor
         onTabSwitch={() => alert("Tab switched! Penalty applied 🚫")}
-      />
+      /> */}
 
       <NavBar />
 
@@ -42,10 +45,19 @@ function BattlePage() {
 
         <div className="w-[65vw] overflow-auto rounded-md border border-white/10 no-scrollbar">
           <div className="h-10 flex gap-2 p-1 truncate text-sm">
-            <select name="" id="">
-              <option value="">C++</option>
-              <option value="">Python</option>
+            <select
+              className="border-none outline-none"
+              name="language"
+              value={ideLang}
+              onChange={(e) => setIdeLang(e.target.value)}
+            >
+              <option value="c">C</option>
+              <option value="cpp">C++</option>
+              <option value="java">Java</option>
+              <option value="python">Python</option>
+              <option value="javascript">JavaScript</option>
             </select>
+
             <div className="w-22 h-full center terminal-header">Timer</div>
             <div className="w-22 h-full center terminal-header">Score</div>
             <button
@@ -70,7 +82,10 @@ function BattlePage() {
             {/* IDE */}
             <CodeIDE />
             <div className="absolute z-9 flex gap-2 bottom-0 right-2 text-sm">
-              <button className="px-2 py-1 terminal-bg rounded-md">
+              <button
+                onClick={() => runCode(code, ideLang)}
+                className="px-2 py-1 terminal-bg rounded-md"
+              >
                 run()
               </button>
               <button className="px-2 bg-green-800 rounded-md">submit()</button>

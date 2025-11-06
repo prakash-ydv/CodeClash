@@ -1,12 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Editor from "@monaco-editor/react";
+import { UserContext } from "../../context/UserContext";
 
 function CodeIDE() {
-  const boilerplate = `
-int twoSum(vector<int>& arr) {
-    // Write your code here
-}`;
-  const [code, setCode] = useState(boilerplate);
 
   function handleEditorWillMount(monaco) {
     monaco.editor.defineTheme("custom-dark", {
@@ -59,14 +55,16 @@ int twoSum(vector<int>& arr) {
     }
   }
 
+  const { code, setCode } = useContext(UserContext);
   return (
     <Editor
       height="100%"
       defaultLanguage="cpp"
-      defaultValue={boilerplate}
       theme="custom-dark"
       beforeMount={handleEditorWillMount}
       onMount={handleEditorDidMount}
+      onChange={(value) => setCode(value)}
+      value={code}
       options={{
         padding: { top: 1 },
         fontSize: 14,

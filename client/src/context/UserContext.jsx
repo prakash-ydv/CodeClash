@@ -7,8 +7,16 @@ import { fetchMYData } from "../api/user.api";
 export const UserContext = createContext(null);
 
 export const UserProvider = ({ children }) => {
+  const boilerplate = `
+int twoSum(vector<int>& arr) {
+    // Write your code here
+}`;
   const [user, setUser] = useState({});
   const [isLogedIn, setIsLogedIn] = useState(false);
+
+  // code context
+  const [code, setCode] = useState(boilerplate);
+  const [ideLang, setIdeLang] = useState("cpp");
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -28,7 +36,18 @@ export const UserProvider = ({ children }) => {
     fetchUser();
   }, []);
   return (
-    <UserContext.Provider value={{ user, setUser, isLogedIn, setIsLogedIn }}>
+    <UserContext.Provider
+      value={{
+        user,
+        setUser,
+        isLogedIn,
+        setIsLogedIn,
+        code,
+        setCode,
+        ideLang,
+        setIdeLang,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );
