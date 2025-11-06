@@ -3,17 +3,21 @@ import Editor from "@monaco-editor/react";
 import { UserContext } from "../../context/UserContext";
 
 function CodeIDE() {
-
   function handleEditorWillMount(monaco) {
     monaco.editor.defineTheme("custom-dark", {
       base: "vs-dark",
       inherit: true,
       rules: [
-        { token: "", background: "1E1E2E" },
-        { token: "comment", foreground: "7E8A97", fontStyle: "italic" },
-        { token: "keyword", foreground: "C678DD" },
-        { token: "string", foreground: "98C379" },
-        { token: "number", foreground: "D19A66" },
+        { token: "", foreground: "D4D4D4", background: "1E1E1E" },
+        { token: "comment", foreground: "6A9955", fontStyle: "italic" },
+        { token: "keyword", foreground: "569CD6" },
+        { token: "identifier", foreground: "D4D4D4" },
+        { token: "number", foreground: "B5CEA8" },
+        { token: "string", foreground: "CE9178" },
+        { token: "operator", foreground: "D4D4D4" },
+        { token: "delimiter", foreground: "D4D4D4" },
+        { token: "type", foreground: "4EC9B0" },
+        { token: "function", foreground: "DCDCAA" },
       ],
       colors: {
         "editor.background": "#0d1117",
