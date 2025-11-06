@@ -31,10 +31,12 @@ const adminAuthRoute = require("./routes/admin.auth.route");
 
 // controllers
 const { fetchMe } = require("./controllers/user.controller");
+const ProblemRoute = require("./routes/problem.route");
 
 // middlewares
 app.use("/auth", authRoute); // fixed slash
 app.use("/admin/auth", adminAuthRoute);
+app.use("/problem", ProblemRoute);
 
 app.get("/", (req, res) => {
   res.json({
